@@ -49,6 +49,8 @@ def respond(client_socket):
                 with open(file_path, "wb") as f:
                     f.write(file_content)
                 response = b"HTTP/1.1 201 OK\r\n\r\n"
+            else:
+                response = b"HTTP/1.1 404 Not Found\r\n\r\n"
     client_socket.send(response)
     client_socket.close()
 
