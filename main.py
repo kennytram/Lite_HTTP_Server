@@ -51,6 +51,8 @@ def respond(client_socket):
                 response = b"HTTP/1.1 201 OK\r\n\r\n"
             else:
                 response = b"HTTP/1.1 404 Not Found\r\n\r\n"
+        case _:
+            response = b"HTTP/1.1 405 Method Not Allowed\r\n\r\n"
     client_socket.send(response)
     client_socket.close()
 
